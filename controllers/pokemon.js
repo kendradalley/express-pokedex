@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../models');
+var db = require('../userapp/models');
 
 // GET - return a page with favorited Pokemon
 router.get('/', function(req, res) {
@@ -20,8 +20,8 @@ router.post('/', function(req, res) {
     }
   }).spread(function(pokeman, created){
     db.pokemon.findAll({}).then(function(pokemon){
-      res.render('favorites', {pokemon: pokemon}); //local 
-    });     
+      res.render('favorites', {pokemon: pokemon}); //local
+    });
   });
 });
 
